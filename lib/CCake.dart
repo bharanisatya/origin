@@ -51,14 +51,22 @@ class CCake extends StatelessWidget {
                   ],
                 ),
                 Padding(padding:  const EdgeInsets.all(8.0)),
-            
-            Padding(padding:  const EdgeInsets.all(8.0)),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               child: const Text("Recipe Book"),
             ),
+            Padding(padding:  const EdgeInsets.all(8.0)),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.popUntil(
+                context,
+                ModalRoute.withName('/'),  // pops until main page
+              );
+            },
+              child: Text('Main Page'),
+          ),
           ],
         ),
       ),
