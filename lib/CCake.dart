@@ -1,7 +1,4 @@
-// ignore_for_file: file_names, unused_shown_name, unused_import
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Colors, Column, Drawer, ElevatedButton, FloatingActionButton, Icon, IconButton, Icons, MaterialApp, Scaffold, State, StatefulWidget, StatelessWidget, Text, Theme, ThemeData, Widget, runApp;
+import 'package:flutter/material.dart';
 
 class CCake extends StatelessWidget {
   const CCake({super.key});
@@ -12,65 +9,55 @@ class CCake extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Chocolate Cake"),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(12),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                    SizedBox(
-                      height: 50,
-                      width: 150,
-                      child: Text("Ingredients", style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 200,
-                      width: 250,
-                      child: Text("1 cup all-purpose flour\n1/2 teaspoon baking soda\n1/2 teaspoon salt\n2–3 tablespoons cocoa powder\n1 cup sugar\n1-2 eggs\n1/2 cup milk\n1/4 cup melted butter\nteaspoon vanilla extract\n1/2 to 1 cup chocolate chips (optional)", style: const TextStyle(color: Color.fromARGB(255, 98, 40, 2))
-                      ),
-                    ),
-                    SizedBox(
-                      height: 50,
-                      width: 100,
-                      child: Text("Process", style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(padding:  const EdgeInsets.all(8.0)),
-                        SizedBox(
-                          height: 220,
-                          width: 500,
-                          child: Text("1. Preheat oven to 350°F (180°C).\n2. Grease a cake tin and line with butter paper.\n3. In a bowl, add flour, baking soda, salt and cocoa powder and mix well.\n4. In another bowl, add suger and eggs and whisk well.\n5. Add milk, melted butter and vanilla extract and Mix until smooth.\n6. Slowly add dry ingrediants into wet mixture and Mix gently until smooth batter forms.\n7. Fold in chocolate chips.\n8. Pour the batter into cake tin and bake it for 30-35 minutes.\n9. Check with toothpick, should come out clean.\n10. Let the cake cool down for 10-15 minutes.", style: const TextStyle(color: Color.fromARGB(255, 98, 40, 2))),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Padding(padding:  const EdgeInsets.all(8.0)),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text("Recipe Book"),
+            Text("Ingredients",
+                style: Theme.of(context).textTheme.headlineMedium),
+
+            const SizedBox(height: 10),
+
+            const Text(
+              "1 cup flour\n1/2 tsp baking soda\n1/2 tsp salt\n"
+              "2–3 tbsp cocoa powder\n1 cup sugar\n1–2 eggs\n"
+              "1/2 cup milk\n1/4 cup butter\n1 tsp vanilla\n"
+              "Chocolate chips (optional)",
             ),
-            Padding(padding:  const EdgeInsets.all(8.0)),
+
+            const SizedBox(height: 20),
+
+            Text("Process",
+                style: Theme.of(context).textTheme.headlineMedium),
+
+            const SizedBox(height: 10),
+
+            const Text(
+              "1. Preheat oven to 180°C\n"
+              "2. Mix dry ingredients\n"
+              "3. Mix wet ingredients\n"
+              "4. Combine both\n"
+              "5. Pour into tin\n"
+              "6. Bake 30–35 mins\n"
+              "7. Cool and serve",
+            ),
+
+            const SizedBox(height: 20),
+
             ElevatedButton(
-              onPressed: () {
-                Navigator.popUntil(
-                context,
-                ModalRoute.withName('/'),  // pops until main page
-              );
-            },
-              child: Text('Main Page'),
-          ),
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Back"),
+            ),
+
+            ElevatedButton(
+              onPressed: () =>
+                  Navigator.popUntil(context, (route) => route.isFirst),
+              child: const Text("Main Page"),
+            ),
           ],
         ),
       ),
-      );
-      }
-      }
-        // Here we take the value from the MyHomePage object that was created by
+    );
+  }
+}
